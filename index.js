@@ -1,9 +1,10 @@
 const fs = require('fs');
 const Discord = require('discord.js');
 const {
-    prefix,
-    token
+    configPrefix,
+    configToken
 } = require('./config.json');
+const prefix = process.env.TOKEN || configPrefix;
 const Canvas = require('canvas');
 
 const client = new Discord.Client();
@@ -121,4 +122,4 @@ client.on('guildMemberAdd', async member => {
     channel.send(`Welcome to the server, ${member}!`, attachment);
 });
 
-client.login(process.env.TOKEN);
+client.login(process.env.TOKEN || configToken);
