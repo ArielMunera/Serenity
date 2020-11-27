@@ -4,7 +4,7 @@ const {
     configPrefix,
     configToken
 } = require('./config.json');
-const prefix = process.env.TOKEN || configPrefix;
+const prefix = process.env.PREFIX || configPrefix;
 const Canvas = require('canvas');
 
 const client = new Discord.Client();

@@ -1,7 +1,7 @@
 const {
     configPrefix,
 } = require('./config.json');
-const prefix = process.env.TOKEN || configPrefix;
+const prefix = process.env.PREFIX || configPrefix;
 module.exports = {
     name: 'help',
     description: 'List all of my commands or info about a specific command.',
