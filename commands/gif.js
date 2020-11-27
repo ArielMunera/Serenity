@@ -1,4 +1,4 @@
-const { giphyKey } = require('../config.json');
+// const { giphyKey } = require('../config.json');
 const request = require('request');
 module.exports = {
     name: 'gif',
@@ -19,7 +19,7 @@ module.exports = {
             gifWord = gifWord + args[i];
         }
 
-        request("http://api.giphy.com/v1/gifs/search?q=" + gifWord + "&api_key=" + giphyKey + "&limit=100", function (error, response, body) {
+        request("http://api.giphy.com/v1/gifs/search?q=" + gifWord + "&api_key=" + process.env.GIPHYKEY + "&limit=100", function (error, response, body) {
             if (!error && response.statusCode == 200) {
                 // Convert body to JSON object
                 let jsonUrl = JSON.parse(body);
