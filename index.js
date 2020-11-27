@@ -18,7 +18,6 @@ for (const file of commandFiles) {
 
 const cooldowns = new Discord.Collection();
 
-client.login(token);
 
 client.once('ready', () => {
     console.log("Ready !");
@@ -121,3 +120,5 @@ client.on('guildMemberAdd', async member => {
 
     channel.send(`Welcome to the server, ${member}!`, attachment);
 });
+
+client.login(process.env.TOKEN);
