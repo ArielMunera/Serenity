@@ -1,9 +1,11 @@
 const fs = require('fs');
 const Discord = require('discord.js');
-const {
-    configPrefix,
-    configToken
-} = require('./config.json');
+if (require('./config.json')) {
+    const {
+        configPrefix,
+        configToken
+    } = require('./config.json');
+}
 const prefix = process.env.PREFIX || configPrefix;
 const Canvas = require('canvas');
 

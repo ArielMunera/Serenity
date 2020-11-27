@@ -1,6 +1,8 @@
-const {
-    configPrefix,
-} = require('./config.json');
+if (require('./config.json')) {
+    const {
+        configPrefix,
+    } = require('./config.json');
+}
 const prefix = process.env.PREFIX || configPrefix;
 module.exports = {
     name: 'help',
