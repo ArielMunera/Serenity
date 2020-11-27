@@ -1,12 +1,12 @@
 const fs = require('fs');
 const Discord = require('discord.js');
-if (require('./config.json')) {
-    const {
-        configPrefix,
-        configToken
-    } = require('./config.json');
-}
-const prefix = process.env.PREFIX || configPrefix;
+// if (require('./config.json')) {
+//     const {
+//         configPrefix,
+//         configToken
+//     } = require('./config.json');
+// }
+const prefix = process.env.PREFIX ;//|| configPrefix;
 const Canvas = require('canvas');
 
 const client = new Discord.Client();
@@ -124,4 +124,4 @@ client.on('guildMemberAdd', async member => {
     channel.send(`Welcome to the server, ${member}!`, attachment);
 });
 
-client.login(process.env.TOKEN || configToken);
+client.login(process.env.TOKEN);// || configToken);
