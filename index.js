@@ -1,6 +1,6 @@
 const fs = require('fs');
 const Discord = require('discord.js');
-// if (require('./config.json')) {
+// if (require('./config.json')) { 
 //     const {
 //         configPrefix,
 //         configToken

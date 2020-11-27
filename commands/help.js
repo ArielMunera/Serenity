@@ -1,4 +1,4 @@
-// if (require('./config.json')) {
+// if (require('./config.json')) { 
 //     const {
 //         configPrefix,
 //     } = require('./config.json');
