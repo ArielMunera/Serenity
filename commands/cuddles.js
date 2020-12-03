@@ -40,7 +40,7 @@ module.exports = {
                     // Set the color of the embed
                     .setColor(0x00bfff)
                     // Set the main content of the embed
-                    .setImage(jsonUrl.data[ranNum].url)
+                    .setImage(jsonUrl.data[ranNum].images.original.url)
                 // Send the embed to the same channel as the message
                 message.channel.send(".").then(async () => {
                     message.channel.bulkDelete(2, true);
