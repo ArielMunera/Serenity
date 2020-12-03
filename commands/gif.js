@@ -1,9 +1,9 @@
-// const { giphyKey } = require('../config.json');
 const request = require('request');
 module.exports = {
     name: 'gif',
     description: 'Call a random gif',
     usage: "<arguments>",
+    args: true,
     execute(message, args) {
 
         // Split message to search GIPHY
@@ -15,7 +15,6 @@ module.exports = {
             if (i > 0) {
                 gifWord = gifWord + "+";
             }
-
             gifWord = gifWord + args[i];
         }
 

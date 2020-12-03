@@ -1,9 +1,4 @@
-// if (require('./config.json')) { 
-//     const {
-//         configPrefix,
-//     } = require('./config.json');
-// }
-const prefix = process.env.PREFIX ;//|| configPrefix;
+const prefix = process.env.PREFIX;
 module.exports = {
     name: 'help',
     description: 'List all of my commands or info about a specific command.',
@@ -36,8 +31,7 @@ module.exports = {
         if (command.aliases) data.push(`**Aliases:** ${command.aliases.join(', ')}`);
         if (command.description) data.push(`**Description:** ${command.description}`);
         if (command.usage) data.push(`**Usage:** ${prefix}${command.name} ${command.usage}`);
-
-        data.push(`**Cooldown:** ${command.cooldown || 0} second(s)`);
+        if (command.cooldown) data.push(`**Cooldown:** ${command.cooldown || 0} second(s)`);
 
         message.channel.send(data, {
             split: true
