@@ -5,11 +5,8 @@ const {
 const {
     getUserFromMention
 } = require('./getUser');
-const {
-    giphyKey
-} = require('../config.json');
 exports.getRandomGifToEmbed = (searchGifWord, message, args, aloneMessage, duoMessage, emoji) => {
-    request("http://api.giphy.com/v1/gifs/search?q=" + searchGifWord + "&api_key=" + giphyKey + "&limit=100", function (error, response, body) {
+    request("http://api.giphy.com/v1/gifs/search?q=" + searchGifWord + "&api_key=" + process.env.GIPHYKEY + "&limit=100", function (error, response, body) {
         if (!error && response.statusCode == 200) {
             // Convert body to JSON object
             let jsonUrl = JSON.parse(body);
