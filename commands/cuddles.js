@@ -2,7 +2,9 @@ const request = require('request');
 const {
     MessageEmbed
 } = require('discord.js');
-let functions = require('../functions.js');
+const {
+    getUserFromMention
+} = require('../util/getUser');
 module.exports = {
     name: 'cuddle',
     aliases: ['caresse', 'cuddles', 'caresses'],
@@ -22,7 +24,7 @@ module.exports = {
                     totGif = 100;
                 }
                 let cuddlesMessage = "";
-                const user = functions.getUserFromMention(args[0], message);
+                const user = getUserFromMention(args[0], message);
                 try {
                     if (user == message.author) {
                         cuddlesMessage = message.author.username + " tu dois te sentir seul(e)... Je te fais pleins de caresses :two_hearts:`\n";
