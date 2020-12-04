@@ -5,6 +5,7 @@ module.exports = {
     name: 'tickle',
     aliases: ['chatouilles'],
     description: 'Chatouiller quelqu\'un.',
+    group: '**Emotions - Commandes d \'émotions**',
     args: true,
     guildOnly: true,
     execute(message, args) {

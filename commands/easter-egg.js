@@ -1,6 +1,7 @@
 module.exports = {
     name: 'easter-egg',
     description: 'EasterEgg!',
+    group: '**Bot - Commandes de test**',
     hidden: true,
     guildOnly: true,
     execute(message, args) {

@@ -2,6 +2,7 @@ const prefix = process.env.PREFIX;
 module.exports = {
     name: 'help',
     description: 'List all of my commands or info about a specific command.',
+    group: '**Bot - Informations par rapport au bot et au discord**',
     aliases: ['commands'],
     usage: '[command name]',
     cooldown: 5,
