@@ -5,7 +5,7 @@ module.exports = {
     name: 'sondage',
     aliases: ['survey'],
     description: 'Créer un sondage de type **Pour**/**Contre**',
-    group: '**Utilitaires - Fonctionnalités utiles pour le serveur**',
+    group: 'Utilitaire',
     args: true,
     usage: "<question>",
     guildOnly: true,

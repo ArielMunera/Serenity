@@ -1,0 +1,22 @@
+{
+    "groups": [
+        {
+            "Bot-Info": "Bot - Informations par rapport au bot et au discord"
+        },
+        {
+            "Bot-Test": "Bot - Commandes de test"
+        },
+        {
+            "Emotion": "Emotions - Commandes d'émotions"
+        },
+        {
+            "Fun": "Fun - Commandes amusantes"
+        },
+        {
+            "Information": "Informations - Commandes permettant d'obtenir des informations"
+        },
+        {
+            "Utilitaire": "Utilitaires - Fonctionnalités utiles pour le serveur"
+        }
+    ]
+}

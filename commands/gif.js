@@ -2,7 +2,7 @@ const request = require('request');
 module.exports = {
     name: 'gif',
     description: 'Call a random gif',
-    group: '**Fun - Commandes amusantes**',
+    group: 'Fun',
     usage: "<arguments>",
     args: true,
     execute(message, args) {

@@ -1,7 +1,7 @@
 module.exports = {
     name: 'args-info',
     description: 'Information about the arguments provided.',
-    group: '**Bot - Commandes de test**',
+    group: 'Bot-Test',
     args: true,
     hidden: true,
     execute(message, args) {

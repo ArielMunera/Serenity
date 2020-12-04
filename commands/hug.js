@@ -5,7 +5,7 @@ module.exports = {
     name: 'hug',
     aliases: ['calins', 'calin', 'hugs'],
     description: 'Envoyer un câlin à quelqu\'un.',
-    group: '**Emotions - Commandes d \'émotions**',
+    group: 'Emotion',
     args: true,
     guildOnly: true,
     execute(message, args) {

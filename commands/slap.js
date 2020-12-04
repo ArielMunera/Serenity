@@ -5,7 +5,7 @@ module.exports = {
     name: 'slap',
     aliases: ['slaps', 'gifle', 'gifles'],
     description: 'Envoyer des gifles à quelqu\'un.',
-    group: '**Emotions - Commandes d \'émotions**',
+    group: 'Emotion',
     args: true,
     guildOnly: true,
     execute(message, args) {

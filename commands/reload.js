@@ -2,7 +2,7 @@ module.exports = {
     name: 'reload',
     args: true,
     description: 'Reloads a command',
-    group: '**Bot - Informations par rapport au bot et au discord**',
+    group: 'Bot-Info',
     guildOnly: true,
     execute(message, args) {
         if (!args.length) return message.channel.send(`You didn't pass any command to reload, ${message.author}!`);

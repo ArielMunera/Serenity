@@ -5,7 +5,7 @@ module.exports = {
     name: 'kiss',
     aliases: ['bisous'],
     description: 'Envoyer des bisous à quelqu\'un.',
-    group: '**Emotions - Commandes d \'émotions**',
+    group: 'Emotion',
     args: true,
     guildOnly: true,
     execute(message, args) {

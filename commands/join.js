@@ -1,7 +1,7 @@
 module.exports = {
     name: 'join',
     description: 'Join!',
-    group: '**Bot - Commandes de test**',
+    group: 'Bot-Test',
     hidden: true,
     guildOnly: true,
     execute(message, args) {
