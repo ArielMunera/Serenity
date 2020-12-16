@@ -80,11 +80,10 @@ module.exports = {
                     // Tant que le Pere Noël et la personne à qui il doit offrir un cadeau est la même on relance pour que ces deux personnes soient différentes
                     do {
                         randomisedSantas = randomSantas(users);
+                        isThereDuplicates = false;
                         randomisedSantas.forEach(santa => {
                             if (santa.santaId == santa.userToGiftId) {
                                 isThereDuplicates = true;
-                            } else {
-                                isThereDuplicates = false;
                             }
                         });
                     } while (isThereDuplicates);
