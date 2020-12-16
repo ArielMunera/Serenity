@@ -10,6 +10,10 @@ module.exports = {
     group: 'Fun',
     usage: "[DD/MM/YYYY](facultatif) [HH:MM](facultatif)",
     guildOnly: true,
+    examples: "$secret-santa\n" +
+        "Cela fixe la date de fin de participation une semaine après le jour de la commande.\n" +
+        "$secret-santa 16/12/2020 12:00\n" +
+        "Cela fixe la date de fin de participation au 16 décembre 2020 à midi",
     execute(message, args) {
         const text = "**Bonsoir** @everyone\n\n" +
             "La période de Noël approchant que diriez-vous d'organiser un petit \"**Secret Santa**\" ?\n" +
@@ -24,20 +28,20 @@ module.exports = {
             .setColor(0xd4423e)
             // Set the main content of the embed
             .setDescription(text);
-        message.channel.send(".").then(async () => {
-            message.channel.bulkDelete(2, true);
+        message.delete().then(async () => {
             // Send the embed to the same channel as the message
             const replyMsg = await message.channel.send(embed);
             // on ajoute les réactions à notre réponse :
             replyMsg.react('🎅').then(() => {
+                let miliSeconds = null;
                 if (args[0]) {
                     const endDay = args[0].split('/')[0];
                     const endMonth = args[0].split('/')[1];
                     const endYear = args[0].split('/')[2];
-                    const endDateText = endMonth + "/" + endDay + "/" + endYear;
-                    var startDate = new Date();
-                    var endDate = new Date(endDateText + " " + args[1] ? args[1] : "");
-                    var miliSeconds = (endDate.getTime() - startDate.getTime());
+                    const endDateText = endYear + "-" + endMonth + "-" + endDay;
+                    let startDate = new Date();
+                    let endDate = new Date(endDateText + ("T" + (args[1] ? args[1] : ""))); // new Date(YYYY-MM-DDTHH:MM:SS);
+                    miliSeconds = (endDate.getTime() - startDate.getTime());
                 }
 
                 let users = new Array();
@@ -50,7 +54,6 @@ module.exports = {
                     time: miliSeconds || 604800000,
                     dispose: true
                 });
-
                 // Lorsqu'un utilisateur ajoute une réaction
                 collector.on('collect', (reaction, user) => {
                     users.push(user);
