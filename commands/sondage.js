@@ -1,6 +1,7 @@
 const {
     MessageEmbed
 } = require('discord.js');
+const prefix = process.env.PREFIX;
 module.exports = {
     name: 'sondage',
     aliases: ['survey'],
@@ -9,6 +10,7 @@ module.exports = {
     args: true,
     usage: "<question>",
     guildOnly: true,
+    example: `\`${prefix}${this.name} Aimez-vous le pain ?\`\n`,
     execute(message, args) {
         // We can create embeds using the MessageEmbed constructor
         // Read more about all that you can do with the constructor

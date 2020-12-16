@@ -1,10 +1,12 @@
 const request = require('request');
+const prefix = process.env.PREFIX;
 module.exports = {
     name: 'gif',
     description: 'Call a random gif',
     group: 'Fun',
     usage: "<arguments>",
     args: true,
+    example: `\`${prefix}${this.name} chat\`\n`,
     execute(message, args) {
 
         // Split message to search GIPHY

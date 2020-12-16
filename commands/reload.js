@@ -1,9 +1,11 @@
+const prefix = process.env.PREFIX;
 module.exports = {
     name: 'reload',
     args: true,
     description: 'Reloads a command',
     group: 'Bot-Info',
     guildOnly: true,
+    example: `\`${prefix}${this.name} ping\`\n`,
     execute(message, args) {
         if (!args.length) return message.channel.send(`You didn't pass any command to reload, ${message.author}!`);
         const commandName = args[0].toLowerCase();

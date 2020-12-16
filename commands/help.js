@@ -19,8 +19,6 @@ module.exports = {
         } = message.client;
 
         if (!args.length) {
-            // data.push('Here\'s a list of all my commands:\n');
-            // data.push(commands.filter(command => command.hidden !== true).map(command => command.name).join(', '));
 
             groups.forEach(group => {
                 if (Object.keys(group) != "Bot-Test") {
@@ -36,8 +34,6 @@ module.exports = {
                 .setColor(0x00bfff)
                 .setDescription(data);
 
-            // data.push(`You can send \`${prefix}help [command name]\` to get info on a specific command!`);
-
             return message.reply(embed);
         }
 
@@ -48,15 +44,17 @@ module.exports = {
             return message.reply('That\'s not a valid command!');
         }
 
-        data.push(`**Name:** ${command.name}`);
-
         if (command.aliases) data.push(`**Aliases:** ${command.aliases.join(', ')}`);
         if (command.description) data.push(`**Description:** ${command.description}`);
-        if (command.usage) data.push(`**Usage:** ${prefix}${command.name} ${command.usage}`);
+        if (command.usage) data.push(`**Format:** \`${prefix}${command.name} ${command.usage}\``);
         if (command.cooldown) data.push(`**Cooldown:** ${command.cooldown || 0} second(s)`);
+        if (command.example) data.push(`**Exemples:**\n ${command.example}`);
 
-        message.channel.send(data, {
-            split: true
-        });
+        const embed = new MessageEmbed()
+            .setTitle(`**Name:** ${command.name}`)
+            .setColor(0x00bfff)
+            .setDescription(data);
+
+        return message.reply(embed);
     },
 };

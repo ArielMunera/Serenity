@@ -4,15 +4,16 @@ const {
 const {
     randomSantas
 } = require('../util/randomSantas');
+const prefix = process.env.PREFIX;
 module.exports = {
     name: 'secret-santa',
     description: 'Organisez un Père-Noël secret.',
     group: 'Fun',
-    usage: "[DD/MM/YYYY](facultatif) [HH:MM](facultatif)",
+    usage: "<DD/MM/YYYY> <HH:MM>",
     guildOnly: true,
-    examples: "$secret-santa\n" +
+    example: `\`${prefix}secret-santa\`\n` +
         "Cela fixe la date de fin de participation une semaine après le jour de la commande.\n" +
-        "$secret-santa 16/12/2020 12:00\n" +
+        `\`${prefix}secret-santa 16/12/2020 12:00\`\n` +
         "Cela fixe la date de fin de participation au 16 décembre 2020 à midi",
     execute(message, args) {
         const text = "**Bonsoir** @everyone\n\n" +
@@ -57,7 +58,7 @@ module.exports = {
                 // Lorsqu'un utilisateur ajoute une réaction
                 collector.on('collect', (reaction, user) => {
                     users.push(user);
-                    console.log(`Collected ${reaction.emoji.name} from ${user.tag}`);
+                    console.log(`Collected ${reaction.emoji.name} from $ {user.tag}`);
                 });
 
                 // Lorsqu'un utilisateur enlève une réaction
@@ -104,7 +105,7 @@ module.exports = {
                         const user = message.client.users.cache.get(santa.santaId);
                         user.send(embed(santa.userToGiftName))
                             .catch(error => {
-                                console.error(`Could not send help DM to ${user.username}.\n`, error);
+                                console.error(`Could not send help DM to ${user.username}.\n `, error);
                                 message.reply('It seems like I can\'t DM you! Do you have DMs disabled?');
                             });
                     });

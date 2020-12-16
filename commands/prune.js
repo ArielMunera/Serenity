@@ -1,9 +1,12 @@
+const prefix = process.env.PREFIX;
 module.exports = {
     name: 'prune',
     aliases: ['delete', 'suppr', 'remove'],
     description: 'Supprimer un certain nombre de messages - max 99',
     group: 'Utilitaire',
     args: true,
+    example: `\`${prefix}${this.name} 43\`\n` +
+        "Cela va supprimer les 43 derniers messages datants de moins de 2 semaines",
     execute(message, args) {
         const amount = parseInt(args[0]) + 1;
 

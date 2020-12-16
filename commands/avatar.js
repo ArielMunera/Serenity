@@ -1,8 +1,10 @@
+const prefix = process.env.PREFIX;
 module.exports = {
     name: 'avatar',
     aliases: ['icon', 'pp', 'php'],
     description: 'Show the avatar(s) of the mentioned user(s)',
     group: 'Utilitaire',
+    example: `\`${prefix}${this.name} @Someone\`\n`,
     execute(message, args) {
         if (!message.mentions.users.size) {
             return message.channel.send(`Your avatar: ` + message.author.displayAvatarURL({
