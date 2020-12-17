@@ -4,7 +4,8 @@ const {
 const prefix = process.env.PREFIX;
 module.exports = {
     name: 'lmgtfy',
-    description: '',
+    aliases: ['google'],
+    description: 'Envoyer un lien LMGTFY.',
     group: 'Fun',
     args: true,
     example: `\`${prefix}${this.name} Quelle heure est-il ?\`\n`,

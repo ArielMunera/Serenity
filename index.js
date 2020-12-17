@@ -1,18 +1,18 @@
 const fs = require('fs');
 const Discord = require('discord.js');
-// if (require('./config.json')) { 
-//     const {
-//         configPrefix,
-//         configToken
-//     } = require('./config.json');
-// }
-const prefix = process.env.PREFIX ;//|| configPrefix;
+const token = process.env.TOKEN;
+const prefix = process.env.PREFIX;
 const Canvas = require('canvas');
-
+const path = require('path');
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+let commandFiles = [];
+fs.readdirSync('./commands').forEach(element => {
+    if (!element.endsWith('.js')) {
+        fs.readdirSync('./commands/' + element).filter(file => file.endsWith('.js') ? commandFiles.push(element + "/" + file) : null);
+    }
+});
 
 for (const file of commandFiles) {
     const command = require(`./commands/${file}`);
@@ -20,7 +20,6 @@ for (const file of commandFiles) {
 }
 
 const cooldowns = new Discord.Collection();
-
 
 client.once('ready', () => {
     console.log("Ready !");
@@ -124,4 +123,4 @@ client.on('guildMemberAdd', async member => {
     channel.send(`Welcome to the server, ${member}!`, attachment);
 });
 
-client.login(process.env.TOKEN);// || configToken);
+client.login(token);

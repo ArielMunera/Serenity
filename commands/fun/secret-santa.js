@@ -3,7 +3,7 @@ const {
 } = require('discord.js');
 const {
     randomSantas
-} = require('../util/randomSantas');
+} = require('../../util/randomSantas');
 const prefix = process.env.PREFIX;
 module.exports = {
     name: 'secret-santa',
