@@ -3,13 +3,22 @@
         "Bonjour",
         "Bonsoir",
         "Coucou",
+        "Cc",
         "Salut",
         "Slt",
+        "Yo",
         "Hello",
         "Hi",
         "こんにちは",
         "Kon'nichiwa",
         "こんばんは",
-        "Konbanwa"
+        "Konbanwa",
+        "Hallo",
+        "Buenos dias",
+        "Hola",
+        "Salve",
+        "Buongiorno",
+        "Buonasera",
+        "Ciao"
     ]
 }
