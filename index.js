@@ -2,6 +2,9 @@ const fs = require('fs');
 const Discord = require('discord.js');
 const token = process.env.TOKEN;
 const prefix = process.env.PREFIX;
+const {
+    hello
+} = require('./util/hello.json');
 const Canvas = require('canvas');
 const path = require('path');
 const client = new Discord.Client();
@@ -26,6 +29,21 @@ client.once('ready', () => {
 });
 
 client.on('message', message => {
+
+    /******************************************** React on hello message *************************************************************/
+    let isHello = hello.find(item => {
+        if (message.content.toLowerCase().startsWith(item.toLowerCase())) {
+            return true;
+        }
+        return false;
+    });
+
+    if (isHello) {
+        message.react('👋');
+    }
+
+    /*********************************************************************************************************************************/
+
     if (!message.content.startsWith(prefix) || message.author.bot) return;
 
     const args = message.content.slice(prefix.length).trim().split(/ +/);
