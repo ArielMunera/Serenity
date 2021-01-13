@@ -14,8 +14,9 @@ module.exports = {
     example: `\`${prefix}${this.name} \`\n` +
         `\`${prefix}${this.name} dark\`\n`,
     execute(message, args) {
-        message.delete().then(
-            request('https://www.blagues-api.fr/api/random', {
+        message.delete().then(() => {
+            let url = 'https://www.blagues-api.fr/api/' + (args[0] ? ("type/" + args[0] + '/random') : 'random');
+            request(url, {
                     headers: {
                         'Authorization': `Bearer ` + tokenBlaguesAPI
                     }
@@ -45,17 +46,14 @@ module.exports = {
                                 break;
                         }
                         const embed = new MessageEmbed()
-                            // Set the title of the field
                             .setTitle(jokeBody.joke)
-                            // Set the color of the embed
                             .setColor(0x00bfff)
-                            // Set the main content of the embed
                             .setDescription("||" + jokeBody.answer + "||")
                             .setFooter('Blague ' + typeBlague, message.guild.iconURL())
                             .setTimestamp();
                         message.channel.send(embed);
                     }
-                })
-        );
+                });
+        });
     },
 };
