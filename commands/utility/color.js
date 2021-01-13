@@ -4,7 +4,7 @@ const {
 const {
     getRandomNumber
 } = require('../../util/getRandomNumber');
-const Jimp = require('Jimp');
+const Jimp = require('jimp');
 const prefix = process.env.PREFIX;
 module.exports = {
     name: 'color',
