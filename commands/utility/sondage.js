@@ -28,8 +28,7 @@ module.exports = {
             .setColor(0x00bfff)
             // Set the main content of the embed
             .setDescription(question);
-        message.channel.send(".").then(async () => {
-            message.channel.bulkDelete(2, true);
+        message.delete().then(async () => {
             // Send the embed to the same channel as the message
             const replyMsg = await message.channel.send(embed);
             // on ajoute les réactions à notre réponse :

@@ -1,7 +1,7 @@
 const prefix = process.env.PREFIX;
 module.exports = {
     name: 'avatar',
-    aliases: ['icon', 'pp', 'php'],
+    aliases: ['icon', 'pp', 'pdp'],
     description: 'Show the avatar(s) of the mentioned user(s)',
     group: 'Utilitaire',
     example: `\`${prefix}${this.name} @Someone\`\n`,
