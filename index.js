@@ -6,7 +6,6 @@ const {
     hello
 } = require('./util/hello.json');
 const Canvas = require('canvas');
-const path = require('path');
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 
@@ -110,7 +109,7 @@ client.on('guildMemberAdd', async member => {
     const canvas = Canvas.createCanvas(700, 250);
     const ctx = canvas.getContext('2d');
 
-    const background = await Canvas.loadImage('./wallpaper.jpg');
+    const background = await Canvas.loadImage('./images/wallpaper.jpg');
     ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
     ctx.strokeStyle = '#74037b';
