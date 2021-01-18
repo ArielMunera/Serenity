@@ -6,7 +6,7 @@ module.exports = {
     group: 'Fun',
     usage: "<arguments>",
     args: true,
-    example: `\`${prefix}${this.name} chat\`\n`,
+    example: " chat",
     execute(message, args) {
 
         // Split message to search GIPHY

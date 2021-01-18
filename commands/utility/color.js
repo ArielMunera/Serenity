@@ -11,8 +11,10 @@ module.exports = {
     aliases: ['randomcolor', 'couleur'],
     description: 'Générer ou afficher une couleur.',
     group: 'Utilitaire',
-    example: `\`${prefix}${this.name} \`\n` +
-        `\`${prefix}${this.name} #00bfff\`\n`,
+    example: `\n`,
+    exampleDesc: `*Pour une couleur aléatoire*`,
+    example2: ` #00bfff\n`,
+    exampleDesc2: `*Pour une couleur particulière*`,
     cooldown: 5,
     execute(message, args) {
         message.delete().then(async () => {

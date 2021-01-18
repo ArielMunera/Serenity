@@ -4,7 +4,7 @@ module.exports = {
     aliases: ['icon', 'pp', 'pdp'],
     description: 'Show the avatar(s) of the mentioned user(s)',
     group: 'Utilitaire',
-    example: `\`${prefix}${this.name} @Someone\`\n`,
+    example: ` @Someone`,
     execute(message, args) {
         if (!message.mentions.users.size) {
             return message.channel.send(`Your avatar: ` + message.author.displayAvatarURL({

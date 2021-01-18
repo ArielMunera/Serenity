@@ -10,7 +10,7 @@ module.exports = {
     args: true,
     usage: "<question>",
     guildOnly: true,
-    example: `\`${prefix}${this.name} Aimez-vous le pain ?\`\n`,
+    example: ` Aimez-vous le pain ?`,
     execute(message, args) {
         // We can create embeds using the MessageEmbed constructor
         // Read more about all that you can do with the constructor

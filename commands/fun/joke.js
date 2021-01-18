@@ -11,8 +11,8 @@ module.exports = {
     group: 'Fun',
     usage: "<type de blague>",
     guildOnly: true,
-    example: `\`${prefix}${this.name} \`\n` +
-        `\`${prefix}${this.name} dark\`\n`,
+    example: `\n`,
+    example2: ` dark`,
     execute(message, args) {
         message.delete().then(() => {
             let url = 'https://www.blagues-api.fr/api/' + (args[0] ? ("type/" + args[0] + '/random') : 'random');

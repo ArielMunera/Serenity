@@ -12,8 +12,9 @@ module.exports = {
     name: 'anime',
     description: 'Afficher des informations à propos d\'un anime.',
     group: 'Utilitaire',
-    example: `\`${prefix}${this.name} \`\n` +
-        `\`${prefix}${this.name} The Seven Deadly Sins\`\n`,
+    example: `\n`,
+    exampleDesc: `*Pour un anime aléatoire*`,
+    example2: ` The Seven Deadly Sins`,
     cooldown: 5,
     execute(message, args) {
         let animeSearch = "";

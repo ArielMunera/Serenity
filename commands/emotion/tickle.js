@@ -9,7 +9,7 @@ module.exports = {
     group: 'Emotion',
     args: true,
     guildOnly: true,
-    example: `\`${prefix}${this.name} @Someone\`\n`,
+    example: ` @Someone`,
     execute(message, args) {
         getRandomGifToEmbed("tickle", message, args, " tu dois t'ennuyer... Je te fais pleins de chatouilles", " Vous recevez des chatouilles de ", " :joy:!");
     },

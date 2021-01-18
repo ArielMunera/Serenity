@@ -4,17 +4,16 @@ const {
 const {
     randomSantas
 } = require('../../util/randomSantas');
-const prefix = process.env.PREFIX;
 module.exports = {
     name: 'secret-santa',
     description: 'Organisez un Père-Noël secret.',
     group: 'Fun',
     usage: "<DD/MM/YYYY> <HH:MM>",
     guildOnly: true,
-    example: `\`${prefix}secret-santa\`\n` +
-        "Cela fixe la date de fin de participation une semaine après le jour de la commande.\n" +
-        `\`${prefix}secret-santa 16/12/2020 12:00\`\n` +
-        "Cela fixe la date de fin de participation au 16 décembre 2020 à midi",
+    example: `\n`,
+    exampleDesc: "*Cela fixe la date de fin de participation une semaine après le jour de la commande.*",
+    example2: ` 16/12/2020 12:00\n`,
+    exampleDesc2: "*Cela fixe la date de fin de participation au 16 décembre 2020 à midi*",
     execute(message, args) {
         const text = "**Bonsoir** @everyone\n\n" +
             "La période de Noël approchant que diriez-vous d'organiser un petit \"**Secret Santa**\" ?\n" +

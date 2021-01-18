@@ -1,23 +1,22 @@
-const prefix = process.env.PREFIX;
 module.exports = {
     name: 'reload',
     args: true,
     description: 'Reloads a command',
     group: 'Bot-Info',
     guildOnly: true,
-    example: `\`${prefix}${this.name} ping\`\n`,
+    example: ` ping`,
     execute(message, args) {
         if (!args.length) return message.channel.send(`You didn't pass any command to reload, ${message.author}!`);
         const commandName = args[0].toLowerCase();
-        const command = message.client.commands.get(commandName) ||
-            message.client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
+        const client = message.client;
+        const command = client.commands.get(commandName) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
         if (!command) return message.channel.send(`There is no command with name or alias \`${commandName}\`, ${message.author}!`);
 
-        delete require.cache[require.resolve(`./${command.name}.js`)];
+        delete require.cache[require.resolve(`../` + (`bot` || `divers` || `emotion` || `fun` || `info` || `utility`) + `/${command.name}.js`)];
 
         try {
-            const newCommand = require(`./${command.name}.js`);
+            const newCommand = require(`../` + (`bot` || `divers` || `emotion` || `fun` || `info` || `utility`) + `/${command.name}.js`);
             message.client.commands.set(newCommand.name, newCommand);
         } catch (error) {
             console.error(error);

@@ -11,6 +11,8 @@ module.exports = {
     group: 'Bot-Info',
     aliases: ['commands'],
     usage: '[command name]',
+    example: `\n`,
+    example2: ` gif`,
     cooldown: 5,
     execute(message, args) {
         const data = [];
@@ -43,12 +45,16 @@ module.exports = {
         if (!command) {
             return message.reply('That\'s not a valid command!');
         }
+        const prefixAndName = prefix + command.name;
+        const example1 = `\`` + prefixAndName + command.example + `\`` + (command.exampleDesc ? command.exampleDesc : "");
+        const example2 = `\`` + prefixAndName + command.example2 + `\`` + (command.exampleDesc2 ? command.exampleDesc2 : "");
+        const examples = example1 + (command.example2 ? (command.exampleDesc ? "\n" : "") + example2 : "");
 
         if (command.aliases) data.push(`**Aliases:** ${command.aliases.join(', ')}`);
         if (command.description) data.push(`**Description:** ${command.description}`);
         if (command.usage) data.push(`**Format:** \`${prefix}${command.name} ${command.usage}\``);
         if (command.cooldown) data.push(`**Cooldown:** ${command.cooldown || 0} second(s)`);
-        if (command.example) data.push(`**Exemples:**\n ${command.example}`);
+        if (command.example) data.push(`**Exemples:**\n ${examples.replace('``', '')}`);
 
         const embed = new MessageEmbed()
             .setTitle(`**Name:** ${command.name}`)
