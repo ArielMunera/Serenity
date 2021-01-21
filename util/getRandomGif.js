@@ -38,7 +38,7 @@ exports.getRandomGifToEmbed = (searchGifWord, message, args, aloneMessage, duoMe
                 // Set the main content of the embed
                 .setImage(jsonUrl.data[ranNum].images.original.url)
             // Send the embed to the same channel as the message
-            message.channel.send(".").then(async () => {
+            message.delete().then(async () => {
                 message.channel.bulkDelete(2, true);
                 message.channel.send({
                     content: args[0],
