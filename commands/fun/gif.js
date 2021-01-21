@@ -1,5 +1,4 @@
 const request = require('request');
-const prefix = process.env.PREFIX;
 module.exports = {
     name: 'gif',
     description: 'Call a random gif',

@@ -1,7 +1,6 @@
 const {
     getRandomGifToEmbed
 } = require('../../util/getRandomGif');
-const prefix = process.env.PREFIX;
 module.exports = {
     name: 'cuddle',
     aliases: ['caresse', 'cuddles', 'caresses'],

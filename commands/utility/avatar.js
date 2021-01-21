@@ -1,4 +1,3 @@
-const prefix = process.env.PREFIX;
 module.exports = {
     name: 'avatar',
     aliases: ['icon', 'pp', 'pdp'],

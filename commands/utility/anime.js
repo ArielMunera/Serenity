@@ -7,7 +7,6 @@ const {
 const {
     getAnime
 } = require('../../util/getAnime');
-const prefix = process.env.PREFIX;
 module.exports = {
     name: 'anime',
     description: 'Afficher des informations à propos d\'un anime.',

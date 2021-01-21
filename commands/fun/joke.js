@@ -2,7 +2,6 @@ const {
     MessageEmbed
 } = require('discord.js');
 const request = require('request');
-const prefix = process.env.PREFIX;
 const tokenBlaguesAPI = process.env.TOKENBLAGUESAPI;
 module.exports = {
     name: 'joke',
