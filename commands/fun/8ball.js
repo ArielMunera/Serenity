@@ -13,7 +13,7 @@ module.exports = {
     description: 'Répond à votre question',
     usage: "[question]",
     guildOnly: true,
-    example: `\n`,
+    example: ` Suis-je paresseux ?`,
     group: 'Fun',
     args: true,
     execute(message, args) {
