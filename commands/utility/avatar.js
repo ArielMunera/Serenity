@@ -17,7 +17,7 @@ module.exports = {
             return `${user.username}'s avatar: ` + user.displayAvatarURL({
                 format: "png",
                 dynamic: true,
-                size: 128
+                size: 256
             });
         });
 
