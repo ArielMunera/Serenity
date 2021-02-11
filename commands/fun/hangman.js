@@ -14,11 +14,16 @@ const {
 const {
   replaceAt
 } = require('../../util/replaceAt.js');
+//TODO : Améliorer la vitesse
+//TODO : Empêcher un joueur qui joue de refaire la commande tant que le jeu n'est pas fini
+//TODO : Ajouter le dico avec l'api : https://www.dicolink.com/account/apiaccess
+//TODO : 
 module.exports = {
-  name: 'pendu',
-  aliases: ['hangman'],
-  description: 'Jeu du pendu\nCette commande est assez lente, merci d\'être patient avec elle',
+  name: 'hangman',
+  aliases: ['pendu'],
+  description: 'Jeu du pendu',
   group: 'Fun',
+  example: "\nCette commande est assez lente, merci d\'être patient avec elle",
   args: false,
   cooldown: 10,
   execute(message, args) {

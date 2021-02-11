@@ -1,3 +1,4 @@
+const fs = require('fs');
 module.exports = {
     name: 'reload',
     args: true,
@@ -11,18 +12,23 @@ module.exports = {
         const client = message.client;
         const command = client.commands.get(commandName) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
-        if (!command) return message.channel.send(`There is no command with name or alias \`${commandName}\`, ${message.author}!`);
-
-        delete require.cache[require.resolve(`../` + (`bot` || `divers` || `emotion` || `fun` || `info` || `utility`) + `/${command.name}.js`)];
+        if (!command) return message.channel.send(`Il n'existe aucune commande avec ce nom ou cet alias \`${commandName}\`, ${message.author}!`);
+        let commandFile = [];
+        fs.readdirSync('./commands').forEach(element => {
+            if (!element.endsWith('.js')) {
+                fs.readdirSync('./commands/' + element).filter(file => file.endsWith(command.name + '.js') ? commandFile.push(element + "/" + file) : null);
+            }
+        });
+        delete require.cache[require.resolve(`../` + commandFile)];
 
         try {
-            const newCommand = require(`../` + (`bot` || `divers` || `emotion` || `fun` || `info` || `utility`) + `/${command.name}.js`);
+            const newCommand = require(`../` + commandFile);
             message.client.commands.set(newCommand.name, newCommand);
+            message.channel.send(`La commande \`${command.name}\` a été rechargée !`);
         } catch (error) {
             console.error(error);
-            message.channel.send(`There was an error while reloading a command \`${command.name}\`:\n\`${error.message}\``);
+            message.channel.send(`Il y a eu une erreur en rechargeant la commande \`${command.name}\`:\n\`${error.message}\``);
         }
 
-        message.channel.send(`Command \`${command.name}\` was reloaded!`);
     },
 };
