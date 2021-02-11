@@ -14,6 +14,7 @@ module.exports = {
     exampleDesc: "*Cela fixe la date de fin de participation une semaine après le jour de la commande.*",
     example2: ` 16/12/2020 12:00\n`,
     exampleDesc2: "*Cela fixe la date de fin de participation au 16 décembre 2020 à midi*",
+    cooldown: 10,
     execute(message, args) {
         const text = "**Bonsoir** @everyone\n\n" +
             "La période de Noël approchant que diriez-vous d'organiser un petit \"**Secret Santa**\" ?\n" +
