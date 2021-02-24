@@ -3,7 +3,7 @@ const {
 } = require('discord.js');
 const {
     groups
-} = require('../../util/commandsGroups.json');
+} = require('../../datas/commandsGroups.json');
 const prefix = process.env.PREFIX;
 module.exports = {
     name: 'help',

@@ -3,11 +3,11 @@ const {
 } = require('discord.js');
 const {
   frenchWords
-} = require('../../util/frenchWords.json');
+} = require('../../datas/frenchWords.json');
 const {
   firstHangman,
   secondHangman
-} = require('../../util/hangmanDeath.json');
+} = require('../../datas/hangmanDeath.json');
 const {
   getRandomNumber
 } = require('../../util/getRandomNumber.js');

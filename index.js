@@ -1,10 +1,14 @@
 const fs = require('fs');
 const Discord = require('discord.js');
+const {
+    dbTablesStructure
+} = require('./db/dbTablesStructure.js'),
+    Tags = dbTablesStructure.Tags;
 const token = process.env.TOKEN;
 const prefix = process.env.PREFIX;
 const {
     hello
-} = require('./util/hello.json');
+} = require('./datas/hello.json');
 const Canvas = require('canvas');
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
@@ -20,10 +24,10 @@ for (const file of commandFiles) {
     const command = require(`./commands/${file}`);
     client.commands.set(command.name, command);
 }
-
 const cooldowns = new Discord.Collection();
 
 client.once('ready', () => {
+    Tags.sync();
     console.log("Ready !");
 });
 
@@ -68,7 +72,7 @@ client.on('message', message => {
 
         if (now < expirationTime) {
             const timeLeft = (expirationTime - now) / 1000;
-            return message.reply(`please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.name}\` command.`);
+            return message.reply(`merci d'attendre ${timeLeft.toFixed(1)} seconde(s) avant de réutiliser la commande \`${command.name}\`.`);
         }
     }
 

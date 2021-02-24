@@ -3,7 +3,7 @@ const {
 } = require('discord.js');
 const {
     ball8Answers
-} = require('../../util/8ballAnswers.json');
+} = require('../../datas/8ballAnswers.json');
 const {
     getRandomNumber
 } = require('../../util/getRandomNumber');
