@@ -45,6 +45,10 @@ client.on('message', message => {
         message.react('👋');
     }
 
+    if (message.content.toLowerCase().includes("tg")) {
+        message.delete();
+    }
+
     /*********************************************************************************************************************************/
 
     if (!message.content.startsWith(prefix) || message.author.bot) return;
@@ -84,10 +88,6 @@ client.on('message', message => {
     } catch (error) {
         console.error(error);
         message.reply('there was an error trying to execute that command!');
-    }
-
-    if (message.content.toLowerCase().includes("tg")) {
-        message.delete();
     }
 });
 
