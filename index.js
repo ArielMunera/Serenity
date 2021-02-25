@@ -85,6 +85,10 @@ client.on('message', message => {
         console.error(error);
         message.reply('there was an error trying to execute that command!');
     }
+
+    if (message.content.toLowerCase().includes("tg")) {
+        message.delete();
+    }
 });
 
 /*************** Autres ***************/
