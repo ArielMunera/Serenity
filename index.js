@@ -45,7 +45,7 @@ client.on('message', message => {
         message.react('👋');
     }
 
-    if (message.content.toLowerCase().includes("tg")) {
+    if (message.content.toLowerCase().replace(/ /g, "").includes("tg")) {
         message.delete();
     }
 
