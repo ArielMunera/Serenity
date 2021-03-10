@@ -45,7 +45,7 @@ client.on('message', message => {
         message.react('👋');
     }
 
-    if (message.content.toLowerCase().replace(/ /g, "").search(/(^|\W)t(\.|"")g($|\W)/g) != -1) {
+    if (message.content.toLowerCase().replace(/ /g, "").search(/(^|\W)t(\W+|(?:))g($|\W)/g) != -1) {
         message.delete();
     }
 
