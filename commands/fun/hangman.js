@@ -16,7 +16,7 @@ const {
 } = require('../../util/replaceAt.js');
 //TODO : Améliorer la vitesse
 //TODO : Empêcher un joueur qui joue de refaire la commande tant que le jeu n'est pas fini
-//TODO : Ajouter le dico avec l'api : https://www.dicolink.com/account/apiaccess
+//TODO : Ajouter le dico avec l'api : https://www.dicolink.com/account/apiaccess lCkXtgEMGGxfCPr1bVsPrsih_-cJ76Mz
 //TODO : 
 module.exports = {
   name: 'hangman',
@@ -29,7 +29,7 @@ module.exports = {
   execute(message, args) {
     const randomIndex = getRandomNumber(frenchWords.length);
     const hangmanDeath = getRandomNumber(2) == 1 ? firstHangman : secondHangman;
-    const wordToSearch = frenchWords[randomIndex].toLowerCase();
+    const wordToSearch = frenchWords[randomIndex].toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     let deathCount = 0;
     let displayedWord = "_ ".repeat(wordToSearch.length).trim();
     let wrongLetters = [];
@@ -95,7 +95,7 @@ module.exports = {
               isGameRunning = false;
               const timeEmbed = new MessageEmbed()
                 .setColor(0x0fefff)
-                .setDescription(":bulb: Temps écoulé :clock1:");
+                .setDescription(":bulb: Temps écoulé :clock1: Le mot à trouver était **" + wordToSearch.charAt(0).toUpperCase() + wordToSearch.slice(1) + "**");
               message.channel.send(timeEmbed);
             }
           });

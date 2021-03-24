@@ -10,7 +10,7 @@ module.exports = {
     args: true,
     async execute(message, args) {
         const tagName = args[1];
-        const tagDescription = args.slice(2).join(' ')
+        const tagDescription = args.slice(2).join(' ');
 
         switch (args[0]) {
             case "add":
@@ -48,7 +48,7 @@ module.exports = {
                         return message.reply(`Tag ${tagName} was edited.`);
                     }
                     return message.reply(`Could not find a tag with name ${tagName}.`);
-                case "remove":
+                case "delete":
                     // equivalent to: DELETE from tags WHERE name = ?;
                     const rowCount = await Tags.destroy({
                         where: {
